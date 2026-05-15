@@ -1,7 +1,7 @@
-<!-- Zphisher -->
+<!-- Evil-Phisher -->
 
 <p align="center">
-  <img src=".github/misc/logo.png">
+  <img >
 </p>
 
 <p align="center">
