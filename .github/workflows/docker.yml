@@ -14,19 +14,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build Image
         run: |
-          # Build Docker Image for DockerHub
-          docker build --tag htrtech/Evil-Phisher:latest .
-
-          # Tag Docker Image for GHCR (আপনার নিজস্ব ইউজারনেম অনুযায়ী ট্যাগ করা হলো)
-          docker tag htrtech/Evil-Phisher:latest ghcr.io/mdarif76769/evil-phisher:latest
+          # আপনার চাওয়া অনুযায়ী 'Evil-Phisher' নাম দিয়ে বিল্ড
+          docker build --tag mdarif76769/Evil-Phisher:latest .
+          
+          # GHCR এর জন্যও একই নাম ট্যাগ করা হলো
+          docker tag mdarif76769/Evil-Phisher:latest ghcr.io/mdarif76769/Evil-Phisher:latest
 
       - name: Login to GHCR
         if: github.repository == 'mdarif76769/Evil-Phisher' && github.ref == 'refs/heads/main'
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -34,16 +34,16 @@ jobs:
 
       - name: Login to DockerHub
         if: github.repository == 'mdarif76769/Evil-Phisher' && github.ref == 'refs/heads/main'
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
-          username: "htrtech"
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Push
+      - name: Push Images
         if: github.repository == 'mdarif76769/Evil-Phisher' && github.ref == 'refs/heads/main'
         run: |
-          # Push to DockerHub
-          docker push htrtech/Evil-Phisher:latest
+          # DockerHub এ পুশ
+          docker push mdarif76769/Evil-Phisher:latest
           
-          # Push to GHCR
-          docker push ghcr.io/mdarif76769/evil-phisher:latest
+          # GHCR এ পুশ
+          docker push ghcr.io/mdarif76769/Evil-Phisher:latest
