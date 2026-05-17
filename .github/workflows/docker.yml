@@ -22,7 +22,7 @@ jobs:
           docker build --tag mdarif76769/Evil-Phisher:latest .
           
           # GHCR এর জন্যও একই নাম ট্যাগ করা হলো
-          docker tag mdarif76769/Evil-Phisher:latest ghcr.io/mdarif76769/Evil-Phisher:latest
+          docker tag mdarif76769/Evil-Phisher:latest ghcr.io/mdarif76769/evil-phisher:latest
 
       - name: Login to GHCR
         if: github.repository == 'mdarif76769/Evil-Phisher' && github.ref == 'refs/heads/main'
@@ -46,4 +46,4 @@ jobs:
           docker push mdarif76769/Evil-Phisher:latest
           
           # GHCR এ পুশ
-          docker push ghcr.io/mdarif76769/Evil-Phisher:latest
+          docker push ghcr.io/mdarif76769/evil-phisher:latest
