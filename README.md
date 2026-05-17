@@ -74,8 +74,12 @@ $ pkg install zphisher
 $ zphisher
 ```
 ### A Note : 
-***Termux discourages hacking*** .. So never discuss anything related to *zphisher* in any of the termux discussion groups. For more check : [wiki](https://wiki.termux.com/wiki/Hacking)
-
+***Termux discourages hacking***
+![Evil-Phisher](scripts/Screenshot_2026-05-17-15-09-39-369_com.termux.jpg)
+![Evil-Phisher](scripts/Screenshot_2026-05-17-15-09-56-735_com.termux.jpg)
+![Evil-Phisher](scripts/Screenshot_2026-05-17-15-10-20-159_com.termux.jpg)
+![Evil-Phisher](scripts/Screenshot_2026-05-17-15-11-27-712_com.android.chrome.jpg)
+![Evil-Phisher](scripts/IMG_20260517_152926.jpg)
 ##
 
 <p align="left">
