@@ -2,20 +2,20 @@ name: 'Build & Push Docker Image'
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # প্রতি রবিবার রান করবে
-  workflow_dispatch: # ম্যানুয়াল রান করার অপশন
+    - cron: "0 0 * * 0" # প্রতি রবিবার
+  workflow_dispatch:
 
 env:
   CI: true
   DOCKER_BUILDKIT: 1
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Node.js 20 ওয়ার্নিং ফিক্স করার জন্য
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # পুল রিকোয়েস্ট ও ফাইল রাইট পারমিশন
-      packages: write # GHCR এ পুশ করার জন্য জরুরি
+      contents: write
+      packages: write
 
     steps:
       - name: Checkout Code
