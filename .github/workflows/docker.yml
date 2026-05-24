@@ -41,7 +41,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Images
-        # এখানে আপনার নতুন রিপোজিটরির নাম দেওয়া হয়েছে
         if: github.repository == 'mdarif76769/evil-phisher'
         run: |
           docker push mdarif76769/evil-phisher:latest
