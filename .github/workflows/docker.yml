@@ -1,22 +1,49 @@
 name: 'Build & Push Docker Image'
 
 on:
+  schedule:
+    - cron: "0 0 * * 0" # প্রতি রবিবার
   workflow_dispatch:
+
+env:
+  CI: true
+  DOCKER_BUILDKIT: 1
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build Image
+        run: |
+          # সঠিক রিপোজিটরি নাম ব্যবহার করুন
+          docker build --tag mdarif76769/evil-phisher:latest .
+          
+          # GHCR এর জন্যও একই নাম ট্যাগ করুন
+          docker tag mdarif76769/evil-phisher:latest ghcr.io/mdarif76769/evil-phisher:latest
+
+      - name: Login to GHCR
+        if: github.repository == 'mdarif76769/evil-phisher' && github.ref == 'refs/heads/main'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Login to DockerHub
+        if: github.repository == 'mdarif76769/evil-phisher' && github.ref == 'refs/heads/main'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push
+      - name: Push Images
+        if: github.repository == 'mdarif76769/evil-phisher' && github.ref == 'refs/heads/main'
         run: |
-          docker build -t mdarif76769/evil-phisher:latest .
+          # DockerHub এ পুশ করুন
           docker push mdarif76769/evil-phisher:latest
+          
+          # GHCR এ পুশ করুন
+          docker push ghcr.io/mdarif76769/evil-phisher:latest
