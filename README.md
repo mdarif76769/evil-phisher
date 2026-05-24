@@ -1,15 +1,15 @@
-<!-- Evil-Phisher -->
-![Evil-Phisher](scripts/20260517_031627.jpg)
+<!-- evil-phisher -->
+![evil-phisher](scripts/20260517_031627.jpg)
 <p align="center">
   <img >
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-2.3.5-green?style=for-the-badge">
-  <img src="https://img.shields.io/github/license/htr-tech/zphisher?style=for-the-badge">
-  <img src="https://img.shields.io/github/stars/htr-tech/zphisher?style=for-the-badge">
-  <img src="https://img.shields.io/github/issues/htr-tech/zphisher?color=red&style=for-the-badge">
-  <img src="https://img.shields.io/github/forks/htr-tech/zphisher?color=teal&style=for-the-badge">
+  <img src="https://img.shields.io/github/license/mdarif76769/evil-phisher?style=for-the-badge">
+  <img src="https://img.shields.io/github/stars/mdarif76769/evil-phisher?style=for-the-badge">
+  <img src="https://img.shields.io/github/issues/mdarif76769/evil-phisher?color=red&style=for-the-badge">
+  <img src="https://img.shields.io/github/forks/mdarif76769/evil-phisher?color=teal&style=for-the-badge">
 </p>
 
 <p align="center">
@@ -53,25 +53,25 @@ It only demonstrates "how phishing works". <b>You shall not misuse the informati
 
 - Just, Clone this repository -
   ```
-  git clone --depth=1 https://github.com/htr-tech/Evil-Phisher.git
+  git clone --depth=1 https://github.com/mdarif76769/evil-phisher.git
   ```
 
-- Now go to cloned directory and run `Evil-Phisher.sh` -
+- Now go to cloned directory and run `Evil_Phisher.sh` -
   ```
-  $ cd Evil-Phisher
+  $ cd evil-phisher
   $ bash Evil_Phisher.sh
   ```
 
-- On first launch, It'll install the dependencies and that's it. ***Evil-Phisher*** is installed.
+- On first launch, It'll install the dependencies and that's it. ***evil-phisher*** is installed.
 
 ##
 
 ### Installation (Termux)
-You can easily install Evil-Phisher in Termux by using tur-repo
+You can easily install evil-phisher in Termux by using tur-repo
 ```
 $ pkg install tur-repo
-$ pkg install zphisher
-$ zphisher
+$ pkg install evil-phisher
+$ evil-phisher
 ```
 ### A Note : 
 ***Termux discourages hacking***
@@ -83,14 +83,14 @@ $ zphisher
 ##
 
 <p align="left">
-  <a href="https://shell.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/mdarif76769/Evil-Phisher.git&tutorial=README.md" target="_blank"><img src="https://gstatic.com/cloudssh/images/open-btn.svg"></a>
+  <a href="https://shell.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/mdarif76769/evil-phisher.git&tutorial=README.md" target="_blank"><img src="https://gstatic.com/cloudssh/images/open-btn.svg"></a>
 </p>
 
 ##
 
 ### Installation via ".deb" file
 
-- Download `.deb` files from the [**Latest Release**](https://github.com/mdarif76769/Evil-Phisher/releases/latest)
+- Download `.deb` files from the [**Latest Release**](https://github.com/mdarif76769/evil-phisher/releases/latest)
 - If you are using ***termux*** then download the `*_termux.deb`
 
 - Install the `.deb` file by executing
@@ -110,22 +110,22 @@ $ zphisher
 - Docker Image Mirror:
   - **DockerHub** : 
     ```
-    docker pull htrtech/Evil-Phisher
+    docker pull htrtech/evil-phisher
     ```
   - **GHCR** : 
     ```
-    docker pull ghcr.io/mdarif76769/Evil-Phisher:latest
+    docker pull ghcr.io/mdarif76769/evil-phisher:latest
     ```
 
 - By using the wrapper script [**run-docker.sh**](https://raw.githubusercontent.com/mdarif76769/Evil-Phisher/master/run-docker.sh)
 
   ```
-  $ curl -LO https://raw.githubusercontent.com/mdarif76769/Evil-Phisher/master/run-docker.sh
+  $ curl -LO https://raw.githubusercontent.com/mdarif76769/evil-phisher/master/run-docker.sh
   $ bash run-docker.sh
   ```
 - Temporary Container
 
   ```
-  docker run --rm -ti htrtech/Evil-Phisher
+  docker run --rm -ti htrtech/evil-phisher
   ```
   - Remember to mount the `auth` directory.
