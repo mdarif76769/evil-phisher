@@ -40,6 +40,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Images
+        # এখানে কন্ডিশন যোগ করা হয়েছে যাতে শুধুমাত্র আপনার রিপোজিটরি থেকে পুশ হয়
+        if: github.repository == 'mdarif76769/Evil-Phisher'
         run: |
           docker push mdarif76769/evil-phisher:latest
           docker push ghcr.io/mdarif76769/evil-phisher:latest
