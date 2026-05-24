@@ -2,13 +2,13 @@ name: 'Build & Push Docker Image'
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # প্রতি রবিবার
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 
 env:
   CI: true
   DOCKER_BUILDKIT: 1
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          # সব ছোট হাতের নাম ব্যবহার করা হয়েছে
+          # ইমেজের নাম অবশ্যই ছোট হাতের অক্ষরে হতে হবে
           docker build --tag mdarif76769/evil-phisher:latest .
           docker tag mdarif76769/evil-phisher:latest ghcr.io/mdarif76769/evil-phisher:latest
 
