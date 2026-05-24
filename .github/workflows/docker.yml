@@ -2,25 +2,26 @@ name: 'Build & Push Docker Image'
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # প্রতি রবিবার
-  workflow_dispatch:
+    - cron: "0 0 * * 0" # প্রতি রবিবার রান করবে
+  workflow_dispatch: # ম্যানুয়াল রান করার অপশন
 
 env:
   CI: true
   DOCKER_BUILDKIT: 1
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Node.js 20 ওয়ার্নিং ফিক্স করার জন্য
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write # GHCR এ পুশ করার জন্য আবশ্যিক
+      contents: write # পুল রিকোয়েস্ট ও ফাইল রাইট পারমিশন
+      packages: write # GHCR এ পুশ করার জন্য জরুরি
 
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Build Image
+      - name: Build Docker Image
         run: |
           docker build --tag mdarif76769/evil-phisher:latest .
           docker tag mdarif76769/evil-phisher:latest ghcr.io/mdarif76769/evil-phisher:latest
@@ -38,7 +39,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Push Images
+      - name: Push Docker Images
         run: |
           docker push mdarif76769/evil-phisher:latest
           docker push ghcr.io/mdarif76769/evil-phisher:latest
