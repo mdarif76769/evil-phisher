@@ -23,6 +23,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
+          # সব ছোট হাতের নাম ব্যবহার করা হয়েছে
           docker build --tag mdarif76769/evil-phisher:latest .
           docker tag mdarif76769/evil-phisher:latest ghcr.io/mdarif76769/evil-phisher:latest
 
@@ -40,8 +41,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Images
-        # এখানে কন্ডিশন যোগ করা হয়েছে যাতে শুধুমাত্র আপনার রিপোজিটরি থেকে পুশ হয়
-        if: github.repository == 'mdarif76769/Evil-Phisher'
+        # এখানে আপনার নতুন রিপোজিটরির নাম দেওয়া হয়েছে
+        if: github.repository == 'mdarif76769/evil-phisher'
         run: |
           docker push mdarif76769/evil-phisher:latest
           docker push ghcr.io/mdarif76769/evil-phisher:latest
